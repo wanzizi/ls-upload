@@ -1,6 +1,7 @@
 # upload使用方法
 
-upload支持较高版本的web（IE10+）或移动端浏览器
+upload支持较高版本的web（IE10+）和移动端浏览器
+可参考demo文件夹中的使用
 
 ***
 
