@@ -33,7 +33,6 @@ Upload.prototype = {
 		
 		this.myForm = document.createElement('form')
 		this.myForm.style.cssText = styleText + 'overflow:hidden;opacity:0'
-		this.setFormAttr(this.myForm)
 		
 		var inputFile = document.createElement('input')
 		inputFile.style.cssText = styleText
@@ -41,19 +40,8 @@ Upload.prototype = {
 		
 		this.addOtherParams()
 		
-		var iframe = document.createElement('iframe')
-		iframe.setAttribute('name','uploadIFrame')
-		iframe.style.display = 'none'
-		
 		this.myForm.appendChild(inputFile)
 		this.el.appendChild(this.myForm)
-		this.el.appendChild(iframe)
-	},
-	setFormAttr:function(myForm){
-		myForm.setAttribute('action',this.action)
-		myForm.setAttribute('method','post')
-		myForm.setAttribute('enctype','multipart/form-data')
-		myForm.setAttribute('target','uploadIFrame')
 	},
 	setFileAttr:function(inputFile){
 		inputFile.setAttribute('type','file')
