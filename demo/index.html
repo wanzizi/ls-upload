@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>upload</title>
+		<style type="text/css">
+			.upload{
+				width: 100px;
+				height: 100px;
+				text-align: center;
+				line-height: 90px;
+				font-size: 50px;
+				border: 1px solid #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<!--dom需要设置宽高，上传插件依赖容器宽高，自动覆盖-->
+		<div class="upload" id="J_upload">+</div>
+		
+		<ul>
+			<li class="upload" id="J_upload1">+</li>
+		</ul>
+	</body>
+	<script src="../upload.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var upp = new Upload({
+			el:'#J_upload', //传入#ID值或者dom
+			action:'http://192.168.0.7:18000/oss/material/ots_center/uploadMaterial', //上传接口，必填！！！
+			data:{
+				module:'/jinhua'
+			},//其余参数
+			multiple:true,
+			accept:'image/jpg', //接受的文件类型
+			disabled:false,
+//			maxSize:'100', //文件大小限制，单位为 byte
+			formatError:function(type,file){
+				console.log(type,file)
+			},
+			oversize:function(size,file){
+				console.log('Current file size:'+size+',oversize!')
+				console.log(file)
+			},
+			beforeUpload:function(files){
+//				console.log(files)
+			},
+			success:function(result){
+				console.log('success000',result)
+			},
+			error:function(error){
+				console.log('error',error)
+			}
+		})
+		
+		var upp1 = new Upload({
+			el:'#J_upload1',
+			action:'http://192.168.0.7:18000/oss/material/ots_center/uploadMaterial', //上传接口，必填！！！
+			data:{
+				module:'/jinhua'
+			},
+			success:function(result){
+				console.log('success1111',result)
+			}
+		})
+	</script>
+</html>
