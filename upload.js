@@ -82,21 +82,18 @@ Upload.prototype = {
       	files = [].slice.call(files, 0)
       	
       	var isFormat = true
-      	var formatList = this.accept?this.accept.split(','):[]
       	var oversize = false
       	
       	var _this = this
       	files.map(function(t){
       		if(!isNaN(parseInt(_this.maxSize)) && _this.maxSize>0 && t.size>_this.maxSize){
       			_this.oversize && _this.oversize(t.size,t)
-				  oversize = true
-				  return false;
+      			oversize = true
       		}
-      		if(formatList.length){
-      			if(formatList.indexOf(t.type) === -1){
+      		if(_this.format.length){
+      			if(_this.format.indexOf(t.type) === -1){
       				_this.formatError && _this.formatError(t.type,t)
-					isFormat = false
-					return false;
+      				isFormat = false
       			}
       		}
       	})
