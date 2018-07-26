@@ -91,8 +91,8 @@ Upload.prototype = {
       			oversize = true
       		}
       		if(_this.format.length){
-      			if(_this.format.indexOf(t.type) === -1){
-      				_this.formatError && _this.formatError(t.type,t)
+      			if(t.type && _this.format.indexOf(t.name.split('.').pop().toLocaleLowerCase()) === -1){
+      				_this.formatError && _this.formatError(t)
       				isFormat = false
       			}
       		}

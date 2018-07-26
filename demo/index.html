@@ -31,12 +31,13 @@
 				module:'/jinhua'
 			},//其余参数
 			multiple:true,
-			accept:'image/jpg', //接受的文件类型, 为 input 标签原生的 accept 属性，会在选择文件时过滤	
-			format:['jpg'],//format 是识别文件的后缀名
+//			accept:'image/png', //接受的文件类型, 为 input 标签原生的 accept 属性，会在选择文件时过滤	
+			format:['png'],//format 是识别文件的后缀名
 			disabled:false,
 //			maxSize:'100', //文件大小限制，单位为 byte
-			formatError:function(type,file){
-				console.log(type,file)
+			formatError:function(file){
+				console.log('error')
+				console.log(file)
 			},
 			oversize:function(size,file){
 				console.log('Current file size:'+size+',oversize!')
