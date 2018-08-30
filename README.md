@@ -17,7 +17,8 @@ var up = new Upload({ ...参数 })
 | action |  上传表单的接口，必填 |
 | data | 除了图片文件之外的参数 |
 | multiple |  是否多选 |
-| accept | 接受的文件类型 |
+| accept | 接受的文件类型，用于input本身的accept参数 |
+| format | 接受的文件类型，用于上传的格式校验，数组格式，值为文件的后缀名 |
 | disabled |  是否禁用 |
 | maxSize | 文件大小限制，单位为 byte |
 | formatError |  格式错误时的回调方法  |  错误的文件类型（遇到第一个错误就会终止），错误的文件数据 |
